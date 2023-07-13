@@ -8,12 +8,12 @@ import {
   DoCheck,
   ElementRef,
   EventEmitter,
-  HostBinding,
+  HostBinding, HostListener,
   Input,
   OnDestroy,
   OnInit,
   Optional,
-  Output,
+  Output, Renderer2,
   Self,
   ViewChild,
 } from '@angular/core';
@@ -169,6 +169,7 @@ export class NgxMatIntlTelInputComponent
     private countryCodeData: CountryCode,
     private fm: FocusMonitor,
     private elRef: ElementRef<HTMLElement>,
+    private renderer: Renderer2,
     @Optional() @Self() public ngControl: NgControl,
     @Optional() _parentForm: NgForm,
     @Optional() _parentFormGroup: FormGroupDirective,
@@ -432,6 +433,16 @@ export class NgxMatIntlTelInputComponent
         return this.numberInstance.formatInternational();
       default:
         return this.numberInstance.nationalNumber.toString();
+    }
+  }
+
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    const elementExists = document.getElementsByClassName('country-search').length
+    if (elementExists) {
+      const element = this.renderer?.selectRootElement('.country-search');
+      const x = element as HTMLElement;
+      setTimeout(() => x.focus(), 200);
     }
   }
 
