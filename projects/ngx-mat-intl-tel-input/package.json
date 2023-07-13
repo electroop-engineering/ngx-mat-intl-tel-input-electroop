@@ -1,6 +1,6 @@
 {
-  "name": "ngx-mat-intl-tel-input",
-  "version": "5.0.0",
+  "name": "ngx-mat-intl-tel-input-electroop",
+  "version": "5.0.1",
   "peerDependencies": {
     "@angular/common": ">=14.x",
     "@angular/core": ">=14.x",
@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tanansatpal/ngx-mat-intl-tel-input"
+    "url": "git+https://github.com/electroop-engineering/ngx-mat-intl-tel-input-electroop"
   },
   "author": {
-    "name": "Satpal Tanan",
-    "email": "tanansatpal@gmail.com"
+    "name": "Electroop",
+    "email": "dev@electroop.io"
   },
   "keywords": [
     "angular",
